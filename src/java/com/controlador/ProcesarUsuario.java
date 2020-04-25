@@ -23,11 +23,11 @@ public class ProcesarUsuario {
     
     DaoUsuario dao = new DaoUsuario();
     
-    @RequestMapping("login.htm")
+    @RequestMapping("usuario.htm")
     public String login(Model m, HttpServletRequest request) {
         HttpSession ses = (HttpSession)request.getSession();
         if(ses.getAttribute("user")!=null){
-            return "redirect:/persona.htm";
+            return "redirect:/index.htm";
         }else {
             m.addAttribute(new Usuario());
             return "login";
