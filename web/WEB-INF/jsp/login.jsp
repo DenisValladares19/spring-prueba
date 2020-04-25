@@ -44,7 +44,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Usuario</label>
-                                        <form:input path="user" required="true" cssClass="form-control" placeholder="1° Usuario..."/>
+                                        <form:input path="user" required="true" cssClass="form-control" placeholder="Usuario..."/>
                                     </div>
                                 </div>
                              </div>
