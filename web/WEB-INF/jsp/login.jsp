@@ -37,7 +37,7 @@
                         
                         
                         <!-- Formulario de Persona -->
-                        <form:form modelAttribute="usuario" role="form" autocomplete="off">
+                        <form:form modelAttribute="usuario" autocomplete="off">
                             <form:hidden path="idUsuario"/>
                             
                             <div class="row mt-1">

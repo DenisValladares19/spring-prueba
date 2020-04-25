@@ -26,9 +26,13 @@ public class DaoUsuario {
     try {
       String sql = "select COUNT(*) from usuario WHERE nombreUsuario=? and password=?";
       int res = ((Integer)this.jdbc.queryForObject(sql, new Object[] { u.getUser(), u.getPass() }, Integer.class)).intValue();
-      if (res > 0)
+      if (res > 0){
         return true; 
-      return false;
+      }else{
+          return false;
+      }
+        
+      
     } catch (Exception e) {
       e.printStackTrace();
       return false;
@@ -37,10 +41,12 @@ public class DaoUsuario {
   
   public boolean validarUsuario(String nombreUsuario) {
     try {
-      int res = (this.jdbc.queryForObject("select COUNT(*) from usuario where nombreUsuario=?", new Object[] { nombreUsuario }, Integer.class));
-      if (res > 0)
+      int res = (this.jdbc.queryForObject("select COUNT(*) from usuario WHERE nombreUsuario=?", new Object[] { nombreUsuario }, Integer.class));
+      if (res > 0){
         return true; 
-      return false;
+      }else{
+          return false;
+      }
     } catch (Exception e) {
       e.printStackTrace();
       return false;

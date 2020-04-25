@@ -34,7 +34,31 @@ public class ProcesarUsuario {
         } 
     }
     
-    
+    @RequestMapping(value = "usuario.htm", method = RequestMethod.POST)
+    public String validar(
+            @ModelAttribute("usuario") Usuario u,
+            HttpServletRequest request,
+            Model m) {
+        
+            String msj="";
+            if(dao.validarUsuario(u.getUser())){
+                if(dao.login(u)){
+                    msj = "Loggeado correctamente";
+                   HttpSession ses = request.getSession(true);
+                   ses.setAttribute("user", u.getUser());
+                   return "redirect:/index.htm";
+                }
+                else {
+                   msj = "Error: Usuario o Contraseña Incorrecto";
+               }
+            }else {
+                msj = "Error: Usuario Incorrecto";
+            }
+            
+            m.addAttribute("mjs", msj);
+            m.addAttribute("usuario", new Usuario());
+        return "usuario";
+    }
     
         
     @RequestMapping(value = "cerrar.htm", method = RequestMethod.GET)
