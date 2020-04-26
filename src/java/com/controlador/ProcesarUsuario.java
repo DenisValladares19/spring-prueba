@@ -29,7 +29,8 @@ public class ProcesarUsuario {
         if(ses.getAttribute("user")!=null){
             return "redirect:/index.htm";
         }else {
-            m.addAttribute(new Usuario());
+            m.addAttribute("mensaje", "fgbfdbdgdg");
+            m.addAttribute("usuario", new Usuario());
             return "login";
         } 
     }
@@ -40,24 +41,23 @@ public class ProcesarUsuario {
             HttpServletRequest request,
             Model m) {
         
-            String msj="";
+            String mj = "";
             if(dao.validarUsuario(u.getUser())){
-                if(dao.login(u)){
-                    msj = "Loggeado correctamente";
+                /*if(dao.login(u)){
                    HttpSession ses = request.getSession(true);
                    ses.setAttribute("user", u.getUser());
                    return "redirect:/index.htm";
                 }
                 else {
-                   msj = "Error: Usuario o Contraseña Incorrecto";
-               }
+                   mj = "Usuario o Contraseña Incorrecto";
+               }*/
             }else {
-                msj = "Error: Usuario Incorrecto";
+                mj = "Usuario no encontrado o contiene caracteres especiales";
             }
             
-            m.addAttribute("mjs", msj);
-            m.addAttribute("usuario", new Usuario());
-        return "usuario";
+            m.addAttribute("mensaje", "fgbfdbdgdg");
+            //m.addAttribute("usuario", new Usuario());
+        return "login";
     }
     
         
