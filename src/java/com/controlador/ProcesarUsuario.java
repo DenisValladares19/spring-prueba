@@ -43,20 +43,20 @@ public class ProcesarUsuario {
         
             String mj = "";
             if(dao.validarUsuario(u.getUser())){
-                /*if(dao.login(u)){
+                if(dao.login(u)){
                    HttpSession ses = request.getSession(true);
                    ses.setAttribute("user", u.getUser());
                    return "redirect:/index.htm";
                 }
                 else {
                    mj = "Usuario o Contraseña Incorrecto";
-               }*/
+               }
             }else {
                 mj = "Usuario no encontrado o contiene caracteres especiales";
             }
             
             m.addAttribute("mensaje", "fgbfdbdgdg");
-            //m.addAttribute("usuario", new Usuario());
+            m.addAttribute("usuario", new Usuario());
         return "login";
     }
     
